@@ -13,13 +13,27 @@
         <h1>Torre De Hanoi</h1>
     </header>
     <main>
+
+        <!-- CONTEÚDO ORIGINAL 
         <section id="towers_wrapper">
-            <div class="tower t-1"></div>
-            <div class="tower t-2 drop_area"></div>
-            <div class="tower t-3 drop_area"></div>
+            <div class="tower t-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="tower t-2 drop_area" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="tower t-3 drop_area" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </section>
+        -->
+        
+        <!-- CONTEÚDO MODIFICADO -->
+        <section id="towers_wrapper">
+            <div id="torre" class="tower t-1"></div>
+            <div id="torre" class="tower t-2 drop_area"></div>
+            <div id="torre" class="tower t-3 drop_area" id="target"></div>
+          </section>
     </main>
-    <!-- script -->
+    <!-- script ORIGINAL 
     <script src="./assets/js/script.js"></script>
+    -->
+
+    <!-- script MODIFICADO -->
+    <script src="./assets/js/scriptJulio.js"></script>
 </body>
 </html>
