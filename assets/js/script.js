@@ -56,7 +56,7 @@ function dragStart (e){
 
 //quando termina de arrastar o item roda essa func;
 //remove a classe opacity
-function dragEnd (e){
+function dragEnd(e){
     e.currentTarget.classList.remove('dragging');
 }
 
@@ -72,8 +72,8 @@ drop_area.forEach(area => {
 //Roda sempre que arrastar um item e o item pasar por cima
 // da area do evento no caso as drop-areas
 function dragOver (e){
-    e.preventDefault(); 
     e.currentTarget.classList.add('hover');
+    e.preventDefault(); 
 }
 
 //Roda quando o item arrastado sai de uma area dropavel
@@ -83,8 +83,11 @@ function dragLeave (e){
 }
 
 //Dropping do item
+//Quando soltar o item
 function drop (e){
-    console.log('teste')
+    e.currentTarget.classList.remove('hover');
+    let dragItem = document.querySelector('.item.dragging');
+    console.log(dragItem);
 }
 
 //e.preventDefault(); 
