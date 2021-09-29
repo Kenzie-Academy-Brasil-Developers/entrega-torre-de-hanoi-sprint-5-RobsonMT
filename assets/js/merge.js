@@ -38,6 +38,7 @@ function addDiscs(qtd){
     disc.id = (qtd-i+1); //usamos para indentificar os discos
     disc.classList = 'disc'; //Usamos para captar todos os discos
     disc.innerHTML = (qtd-i+1);//não apaga confia!
+    // disc.style.color = '#fff';
     disc.style.cursor = 'pointer';
     disc.style.border = '1px solid';
     disc.draggable = true;
