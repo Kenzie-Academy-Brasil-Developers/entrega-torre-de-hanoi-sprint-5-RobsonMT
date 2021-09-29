@@ -5,53 +5,102 @@
     padding: 0;
 }
 
-header{
-    background-color: rgb(138, 167, 192);
-    height: 80px;
+div.jogo{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: space-around;
 }
 
-header>h1{
+header, footer{
+    width: 100vw;
+    height: 80px;
+    background-color: rgb(138, 167, 192);
+}
+
+header h1, footer h4{
     text-align: center;
     line-height: 80px;
 }
 
 main{
-    padding: 10px 0;
-    height: calc(100vh - 60px);
+    position: relative;
     background-color: rgb(255, 255, 255);
+    margin: auto;
 }
 
 /* TOWERS-WRAPPER */
-main>#towers_wrapper{
-    padding: 10px;
+section.towers_wrapper{
     display: flex;
-    border: 1px solid;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    border-radius: 5px 5px 0px 0px;
+    justify-content: space-around;
+    width: 90vw;
+    height: 35vh;
+    background-color: #a10707;
+    margin: auto;
 }
 
-/* TOWERS */
-main>#towers_wrapper>.tower{
-    padding: 2px;
-    margin-top: 30px;
-
-    /* testes */
-    border: 1px solid;
-    height: 300px;
-    flex-basis: 33.333%;
-
-    /* posicionamento dos discs */
+div.tower{
     display: flex;
     flex-flow: column-reverse nowrap;
+    border-radius: 10px 10px 0px 0px;
     align-items: center;
-    /* justify-content: flex-end; */
-
-    /* background-image: url('../../poste.png');
-    background-repeat: no-repeat;
-    background-position: bottom;
-    object-fit: fill; */
+    justify-items: end;
+    width: 1.5vw;
+    height: 80%;
+    background-color: black;
 }
 
+div.base{
+    width: 90vw;
+    height: 1.5vw;
+    margin: 0px auto;
+    background-color: black;
+}
+
+span.disc{
+height: 3vh;
+text-align: center;
+font-size: .2em;
+cursor: pointer;
+border-radius: 3px;
+}
+
+div.painel{
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 0px 0px 5px 5px;
+width: 90vw;
+height: 35vh;
+margin: 0px auto;
+background-color: #003F63;
+}
+
+ul.opcoes{
+list-style: none;
+padding: 2vh;
+line-height: 4vh;
+color: wheat;
+border: 1px solid;
+}
+
+ul button{
+width: 40%;
+height: 4vh;
+margin-top: 2vh;
+}
+
+li.buttons{
+text-align: center;
+}
+  
 /* movimentando item */
-.item.moving{
+.item .moving{
     opacity: 0.5;
 }
 
@@ -63,38 +112,4 @@ main>#towers_wrapper>.tower{
 /* quando nao e permitido o drop na div */
 .drop_area.noo{
     background-color: rgb(226, 73, 27);
-}
-
-/* discos geral */
-.tower>span{
-    /* styles-geral */
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    text-align: center;
-    padding: 8px;
-    /* testes */
-    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-    background: rgb(41,26,4);
-    background: linear-gradient(0deg, rgba(41,26,4,1) 25%, rgba(93,66,25,1) 43%, rgba(74,51,10,1) 63%, rgba(164,129,51,1) 96%);
-}
-
-/* discos */
-#\31 {
-    opacity: 0.7;
-    width: 60%;
-}
-#\32 {
-    opacity: 0.75;
-    width: 70%;
-}
-#\33 {
-    opacity: 0.79;
-    width: 80%;
-}
-#\34 {
-    opacity: 0.85;
-    width: 90%;
-}
-#\35 {
-    width: 100%;
 }

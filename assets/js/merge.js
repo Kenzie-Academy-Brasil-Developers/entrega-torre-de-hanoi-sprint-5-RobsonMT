@@ -7,7 +7,7 @@ const towers = document.querySelector('#towers_wrapper');
 const tower1 = document.querySelector('#twr_1');
 tower1.addEventListener('mouseenter', (e) =>{
     // console.log('TARGET',(e.target));
-    // e.currentTarget.classList.add('moving');
+    // e.currentTarget.classList.add('hover');
 });
 //ouvinte da torre 2
 const tower2 = document.querySelector('#twr_2');
@@ -32,13 +32,16 @@ tower3.addEventListener('mouseenter', (e) =>{
 
 //Função que adiciona os discos
 function addDiscs(qtd){
-  for(let i=1;i<=qtd;i++){
+  for(i=qtd;i>=1;i--){
+    let arrayCores = ["#003F63", "#F2B138", "#A1A5A6", "#D9D9D9", "#353D40"]
+    let width = 5*i
     const tower1 = document.querySelector('#twr_1');
     const disc = document.createElement("span");
-    disc.id = (qtd-i+1); //usamos para indentificar os discos
+    disc.id = i; //usamos para indentificar os discos
     disc.classList = 'disc'; //Usamos para captar todos os discos
-    disc.innerHTML = (qtd-i+1);//não apaga confia!
-    // disc.style.color = '#fff';
+    disc.innerHTML = i;//não apaga confia!
+    disc.style.backgroundColor = arrayCores[i-1]
+    disc.style.width = width+"vw"
     disc.style.cursor = 'pointer';
     disc.style.border = '1px solid';
     disc.draggable = true;
@@ -47,8 +50,31 @@ function addDiscs(qtd){
   return addDiscs;
 }
 
-//adicionando os discos na div Torre1
-addDiscs(5)
+function comecar(){
+  let numDiscos = document.querySelector("#numDiscos").value
+  let btnReiniciar = document.getElementById("btnReiniciar")
+  let btnComecar = document.getElementById("btnComecar")
+  btnReiniciar.disabled = false
+  btnComecar.disabled = true
+  if(numDiscos == 3){document.querySelector("#labelMinMov").innerText = 7}
+  if(numDiscos == 4){document.querySelector("#labelMinMov").innerText = 15}
+  if(numDiscos == 5){document.querySelector("#labelMinMov").innerText = 31}
+  document.querySelector("#labelMov").innerText = 0
+  let discs = document.querySelectorAll("span.disc")
+  discs.forEach(disc => { disc.parentNode.removeChild(disc)})
+  addDiscs(numDiscos) //adicionar os discos
+}
+
+function reiniciar(){
+  let numDiscos = document.querySelector("#numDiscos").value
+  if(numDiscos == 3){document.querySelector("#labelMinMov").innerText = 7}
+  if(numDiscos == 4){document.querySelector("#labelMinMov").innerText = 15}
+  if(numDiscos == 5){document.querySelector("#labelMinMov").innerText = 31}
+  document.querySelector("#labelMov").innerText = 0
+  let discs = document.querySelectorAll("span.disc")
+  discs.forEach(disc => { disc.parentNode.removeChild(disc)})
+  addDiscs(numDiscos)
+}
 
 //============================= CAPTURANDO OS DISCOS E TORRES =====================================
 
@@ -85,6 +111,7 @@ function dragEnd(e){
   e.currentTarget.classList.remove('moving');
 }
 
+
 //========================= FUNÇŌES PARA AS TORRES ==============================================
 
 //Adicionando funçōes APENAS PARA AS TORRES
@@ -107,25 +134,12 @@ torres.forEach(torre =>{
 
 //=> dragenter(Quando ENTRAR na torre)
 function dragenter(e){
-     //Define uma variavel com elemento da torre que o item esta em cima
-     let torreID = (e).currentTarget;
-     // console.log(torreID)
- 
-     //Define uma variavel com a tag do item que esta em movimento
-     let itemID = document.querySelector('.moving');
-     // console.log(itemID)
- 
-     //variavel que seleciona o ultimo elemento que estiver na coluna
-     const idg = e.target.lastChild;
-     // console.log(idg.id);
- 
-     //validação para permitir o drop nas colunas
-     if((e.target.querySelector('.disc') === null) || (idg.id > itemID.id)){
-         e.preventDefault(itemID); 
-         e.target.classList.add('yes');
-     }else{
-         e.target.classList.add('noo');
-     }
+//   console.log("Entrou na torre!");
+  let torreID = (e).currentTarget;
+//   console.log(torreID)
+
+  let itemID = document.querySelector('.moving');
+//   console.log(itemID)
 }
 
 //=> dragover(Quando ESTIVER dentro da torre)
@@ -139,24 +153,21 @@ function dragover(e){
     let itemID = document.querySelector('.moving');
     // console.log(itemID)
 
-    //variavel que seleciona o ultimo elemento que estiver na coluna
-    const idg = e.target.lastChild;
-    // console.log(idg.id);
-
-    //validação para permitir o drop nas colunas
-    if((e.target.querySelector('.disc') === null) || (idg.id > itemID.id)){
+    //verifise o item arrastado esta na area permitida para liberar o sinal de mais 
+    //de que pode dropar ainda irei mexer
+    // if((e.target.querySelector('.disc') === null) || (idg.id < itemID.id)){
         e.preventDefault(itemID); 
-        e.target.classList.add('yes');
-    }else{
-        e.target.classList.add('noo');
-    }
+    // }else{return false}
 
+    //variavel que seleciona o ultimo elemento que estiver na coluna
+    const idg = e.target.firstChild;
+    // console.log(idg.id);
 }
 
 //=> dragleave(Quando SAIR da torre)
 function dragleave(e){
-    e.target.classList.remove('yes');
-    e.target.classList.remove('noo');
+//     this.currentTarget.classList.remove('hover');
+//   console.log("sair da torre!")
 }
 //ainda irei mexer
 
@@ -165,15 +176,15 @@ function drop(e){
     //Define uma variavel com a tag do item que esta em movimento
     let itemID = document.querySelector('.moving');
     // console.log(e.target)
-    const idg = e.target.lastChild;
+    const idg = e.target.firstChild;
     // console.log(idg);
 
     //validação para permitir o drop nas colunas
-    if((e.target.querySelector('.disc') === null) || (idg.id > itemID.id)){
-        e.target.appendChild(itemID);
-    }
+    if((e.target.querySelector('.disc') === null) || (idg.id < itemID.id)){
+        e.target.appendChild(itemID)
+    }else{return false;}
 
-    //remove classes yes or no
+    //remove a classe hover
     e.currentTarget.classList.remove('moving');
-    e.target.classList.remove('yes');
 }
+
