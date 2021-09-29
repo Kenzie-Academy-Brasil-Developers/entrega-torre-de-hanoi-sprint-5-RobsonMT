@@ -39,39 +39,44 @@ main>#towers_wrapper>.tower{
 
     /* posicionamento dos discs */
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column-reverse nowrap;
     align-items: center;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
 }
 
-.t-1>span{
+.tower>span{
     /* styles-geral */
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     text-align: center;
     padding: 5px;
+
+
+    /* testes */
+    width: 100%;
+    background-color: rgb(110, 110, 180);
 }
 
-.t-1 span:nth-child(1){
+/* #twr_1>span:nth-child(1){
     background-color: rgba(255, 255, 0, 0.884);
     width: 25%;
 }
-.t-1>span:nth-child(2){
+#twr_1>span:nth-child(2){
     background-color: rgba(0, 0, 255, 0.815);
     width: 40%;
 }
-.t-1>span:nth-child(3){
+#twr_1>span:nth-child(3){
     background-color: rgba(255, 0, 0, 0.884);
     width: 60%;
 }
-.t-1>span:nth-child(4){
+#twr_1>span:nth-child(4){
     background-color: rgba(101, 49, 223, 0.952);
     width: 80%;
 }
-.t-1>span:nth-child(5){
+#twr_1>span:nth-child(5){
     background-color: rgba(0, 128, 0, 0.829);
     width: 100%;
-}
+} */
 
 /* movimentando item */
 .item.dragging{
@@ -79,5 +84,5 @@ main>#towers_wrapper>.tower{
 }
 
 .drop_area.hover{
-    background-color: rgb(192, 189, 189);
+    opacity: 0.5;
 }
