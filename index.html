@@ -1,50 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- css -->
-        <link rel="stylesheet" href="./assets/css/style.css">
-        <title>Document</title>
-    </head>
-    <body>
-        <div class="jogo">
-            <header>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="jogo">
+        <header>
             <h1>Torre De Hanoi</h1>
-            </header>
-            <main>
-                <section id="towers_wrapper" class="towers_wrapper">
-                    <div class="tower drop_area" id="twr_1"></div>
-                    <div class="tower drop_area" id="twr_2"></div>
-                    <div class="tower drop_area" id="twr_3"></div>
-                </section>
-                <div class="base"></div>
-                <div class="painel">
-                    <ul class="opcoes">
-                        <li>
-                            <span>Numero de discos: </span>
-                            <select name="numDiscos" id="numDiscos">
-                            <option value="3">Nivel 1</option>
-                            <option value="4">Nivel 2</option>
-                            <option value="5">Nivel 3</option>
-                            </select>
-                        </li>
-                        <li><span>Mínimo de movimentos: </span><label id="labelMinMov"></label></li>
-                        <li><span>Seus movimentos: </span><label id="labelMov"></label></li>
-                        <li class="buttons">
-                            <button id="btnReiniciar" onclick="reiniciar()" disabled="true">Reiniciar</button>
-                            <button id="btnComecar" onclick="comecar()">Começar</button>
-                        </li>
-                    </ul>
-                </div>
-            </main>
-            <footer>
-                <h4>By Júlio Pereira / Robson Martins</h4>
-            </footer>
-        </div>
-
-<!-- script Merge  -->
-<script src="./assets/js/merge.js"></script>
-    </body>
+            <img src="./assets/img/logo.png" alt="">
+        </header>
+        <main>
+            <section id="towers_wrapper" class="towers_wrapper">
+                <div class="tower drop_area" id="twr_1"></div>
+                <div class="tower drop_area" id="twr_2"></div>
+                <div class="tower drop_area" id="twr_3"></div>
+            </section>
+            <div class="base"></div>
+            <div class="painel">
+                <ul class="opcoes">
+                    <li>
+                        <span>Numero de discos: </span>
+                        <select name="numDiscos" id="numDiscos">
+                        <option value="3">Nivel 1</option>
+                        <option value="4">Nivel 2</option>
+                        <option value="5">Nivel 3</option>
+                        </select>
+                    </li>
+                    <li><span>Mínimo de movimentos: </span><label id="labelMinMov"></label></li>
+                    <li><span>Seus movimentos: </span><label id="labelMov"></label></li>
+                    <li class="buttons">
+                        <button id="btnReiniciar" onclick="reiniciar()" disabled="true">Reiniciar</button>
+                        <button id="btnComecar" onclick="comecar()">Começar</button>
+                    </li>
+                </ul>
+            </div>
+        </main>
+        <footer>
+            <h4>By Júlio Pereira / Robson Martins</h4>
+        </footer>
+    </div>
+<!-- script -->
+<script src="./assets/js/script.js"></script>
+</body>
 </html>
