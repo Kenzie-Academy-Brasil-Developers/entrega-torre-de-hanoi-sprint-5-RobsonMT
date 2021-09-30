@@ -71,9 +71,18 @@ function comecar(){
   let btnComecar = document.getElementById("btnComecar");
   btnReiniciar.disabled = false;
   btnComecar.disabled = true;
-  if(numDiscos == 3){document.querySelector("#labelMinMov").innerText = 7};
-  if(numDiscos == 4){document.querySelector("#labelMinMov").innerText = 15};
-  if(numDiscos == 5){document.querySelector("#labelMinMov").innerText = 31};
+  if(numDiscos == 3){
+    document.querySelector("#labelMinMov").innerText = 7
+    document.querySelector("#labelMinMov").value = 7
+  };
+  if(numDiscos == 4){
+    document.querySelector("#labelMinMov").innerText = 15
+    document.querySelector("#labelMinMov").value = 15
+  };
+  if(numDiscos == 5){
+    document.querySelector("#labelMinMov").innerText = 31
+    document.querySelector("#labelMinMov").value = 31
+  };
   document.querySelector("#labelMov").innerText = 0;
   let discs = document.querySelectorAll("span.disc");
   discs.forEach(disc => { disc.parentNode.removeChild(disc)});
@@ -82,15 +91,26 @@ function comecar(){
 }
 
 function reiniciar(){
-  btnReiniciar.disabled = true;
-  btnComecar.disabled = false;
+  let btnReiniciar = document.getElementById("btnReiniciar");
+  let btnComecar = document.getElementById("btnComecar");
+  btnReiniciar.disabled = false;
+  btnComecar.disabled = true;
   let numDiscos = document.querySelector("#numDiscos").value;
-  if(numDiscos == 3){document.querySelector("#labelMinMov").innerText = 7};
-  if(numDiscos == 4){document.querySelector("#labelMinMov").innerText = 15};
-  if(numDiscos == 5){document.querySelector("#labelMinMov").innerText = 31};
+  if(numDiscos == 3){
+    document.querySelector("#labelMinMov").innerText = 7
+    document.querySelector("#labelMinMov").value = 7
+  };
+  if(numDiscos == 4){
+    document.querySelector("#labelMinMov").innerText = 15
+    document.querySelector("#labelMinMov").value = 15
+  };
+  if(numDiscos == 5){
+    document.querySelector("#labelMinMov").innerText = 31
+    document.querySelector("#labelMinMov").value = 31
+  };
   document.querySelector("#labelMov").innerText = 0;
   let discs = document.querySelectorAll("span.disc");
-  discs.forEach(disc => { disc.removeChild(disc)});
+  discs.forEach(disc => { disc.parentNode.removeChild(disc)});
   return addDiscs (numDiscos);
 }
 
