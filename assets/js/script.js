@@ -1,3 +1,4 @@
+document.getElementById("btnReiniciar").disabled = true
 //capturando a section que embrulha as sections
 const towers = document.querySelector('#towers_wrapper');
 
