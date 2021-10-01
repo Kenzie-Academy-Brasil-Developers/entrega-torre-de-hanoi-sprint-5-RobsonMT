@@ -43,13 +43,13 @@ section.towers_wrapper{
 div.tower{
     display: flex;
     flex-flow: column-reverse nowrap;
-    border-radius: 10px 10px 0px 0px;
+    /* border-radius: 10px 10px 0px 0px; */
     align-items: center;
     justify-items: end;
-    min-width: 10px;
+    min-width: 30%;
     width: 1.5vw;
     height: 80%;
-    background-color: black;
+    background-color: rgb(173, 161, 161);
 }
 /* BASE DAS TORRES */
 div.base{
