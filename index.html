@@ -24,18 +24,17 @@
                 <ul class="opcoes">
                     <li>
                         <span>Numero de discos: </span>
-                        <select name="numDiscos" id="numDiscos">
+                        <select name="numDiscs" id="numDiscs">
                         <option value="3">Nivel 1</option>
                         <option value="4">Nivel 2</option>
                         <option value="5">Nivel 3</option>
                         </select>
                     </li>
-                    <li><span>Mínimo de movimentos: </span><label id="labelMinMov"></label></li>
-                    <li><span>Seus movimentos: </span><label id="labelMov"></label></li>
+                    <li><span>Mínimo de movimentos: </span><label id="minMov">0</label></li>
+                    <li><span>Seus movimentos: </span><label id="numMov">0</label></li>
                     <li class="buttons">
-                        <input id="btnReiniciar" type="button" value="Refresh Page" onClick="location.href=location.href">
-                        <!-- <button id="btnReiniciar" onclick="reiniciar()">Reiniciar</button> -->
-                        <button id="btnComecar" onclick="comecar()">Começar</button>
+                        <button id="btnRestart" type="button">Restart</button>
+                        <button id="btnStart">Start</button>
                     </li>
                 </ul>
             </div>
