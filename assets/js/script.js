@@ -6,27 +6,53 @@ document.querySelector("#btnStart").addEventListener('click', start)
 function start(){
   document.querySelector("#btnRestart").disabled = false;
   document.querySelector("#btnStart").disabled = true;
-  value();
+  // value();
 }
 
-function value(){
-  let output = '';
-  let num =  document.querySelector("#numDiscs").value;
-  document.getElementById("btnRestart").disabled = false;
-  numSelected.push(num);
-  
-  if(num == 3){output = 3, document.querySelector("#minMov").innerText = 7;};
-  if(num == 4){output = 4, document.querySelector("#minMov").innerText = 15;};
-  if(num == 5){output = 5, document.querySelector("#minMov").innerText = 31;};
-
-  return output;
+document.querySelector("#btnRestart").addEventListener('click', restart)
+function restart(){
+  document.querySelector("#btnRestart").disabled = true;
+  document.querySelector("#btnStart").disabled = false;
 }
 
-const numSelected = [];
-let numStart = 5;
+// function value(){
+//   let output = '';
+//   let num =  document.querySelector("#numDiscs").value;
+//   document.getElementById("btnRestart").disabled = false;
 
-function addDiscs(numb){
-  for(i=numb;i>=1;i--){
+//   if(num == 3){output = 3, document.querySelector("#minMov").innerText = 7;};
+//   if(num == 4){output = 4, document.querySelector("#minMov").innerText = 15;};
+//   if(num == 5){output = 5, document.querySelector("#minMov").innerText = 31;};
+
+//   return output;
+// }
+
+const teste = document.querySelector('#numDiscs');
+teste.addEventListener('change', function(event){
+  let target = event.target;
+  let result = document.querySelector("#minMov");
+  let text;
+
+  switch (target.value) {
+    case '3':
+      text = 7;
+        break;
+    case '4':
+      text = 15;
+        break;
+    case '5':
+      text = 31;
+        break;
+    default:
+      text = 0;
+  }
+  result.innerText = text;
+})
+
+let numbStart = 5;
+
+function addDiscs( ){
+  for(i=numbStart;i>=1;i--){
     let arrayCores = ["#003F63", "#F2B138", "#A1A5A6", "#D9D9D9", "#350D40", "#02Ba38"];
     let width = 5*i;
     const tower1 = document.querySelector('#twr_1');
@@ -44,18 +70,17 @@ function addDiscs(numb){
     tower1.appendChild(disc);
   }     
   return addDiscs;
-}
-addDiscs(5)
+};addDiscs();
 
 const blockDiscs = document.querySelectorAll(".disc") 
 blockDiscs.forEach(disck =>{
   disck.addEventListener("mouseover", (event)=>{
     // console.log(event.currentTarget)//disc
-    let tw1 = document.querySelector('#twr_1')//coluna-1
-    let tw2 = document.querySelector('#twr_2')//coluna-2
-    let tw3 = document.querySelector('#twr_3')//coluna-3
+    let tw1 = document.querySelector('#twr_1');//coluna-1
+    let tw2 = document.querySelector('#twr_2');//coluna-2
+    let tw3 = document.querySelector('#twr_3');//coluna-3
 
-    let dsc = event.currentTarget//disc
+    let dsc = event.currentTarget;//disc
 
     //verifico se são os ultimos filhos
     if(dsc === tw1.lastChild || dsc === tw2.lastChild || dsc === tw3.lastChild){
@@ -65,8 +90,8 @@ blockDiscs.forEach(disck =>{
 
     }else {
       //Caso não sejam bloqueio a movimentacão dos mesmos
-      event.currentTarget.classList.add('unselectable'),
-      event.currentTarget.style.cursor = 'no-drop',
+      event.currentTarget.classList.add('unselectable');
+      event.currentTarget.style.cursor = 'no-drop';
       event.currentTarget.draggable = false; 
     
     }
@@ -129,10 +154,25 @@ function drop(e){
   //removendo classes de indicação
   e.currentTarget.classList.remove('yes');
   e.currentTarget.classList.remove('noo');
+  victory();
 }
 
-document.querySelector("#btnRestart").addEventListener('click', restart)
-function restart(){
-  document.querySelector("#btnRestart").disabled = true;
-  document.querySelector("#btnStart").disabled = false;
-}
+function victory(){
+  let tw = document.querySelectorAll('.drop_area');
+  
+  for(let i=0; i<tw.length; i++){
+    if(tw[1].hasChildNodes() && !tw[2].hasChildNodes() && !tw[0].hasChildNodes() ||
+    !tw[2].hasChildNodes() && !tw[1].hasChildNodes() && !tw[1].hasChildNodes()){
+      let alertWin = document.createElement('span');
+      alertWin.innerHTML = "good you win!";
+      alertWin.style.position = 'fixed';
+      alertWin.style.backgroundColor = 'white'
+      alertWin.style.borderRadius = '8px';
+      alertWin.style.font = '30px Ubuntu';
+      alertWin.style.padding = '10px';
+      document.querySelector('.painel').appendChild(alertWin)
+
+    }
+  }
+  return victory;
+};
