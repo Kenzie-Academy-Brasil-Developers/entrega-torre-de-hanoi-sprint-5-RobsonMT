@@ -82,9 +82,9 @@ ul.opcoes{
     color: wheat;
     border: 1px solid;
 }
-ul>button{
+ul button{
     width: 40%;
-    height: 4vh;
+    padding: 5px;
     margin-top: 2vh;
 }
 li.buttons{
