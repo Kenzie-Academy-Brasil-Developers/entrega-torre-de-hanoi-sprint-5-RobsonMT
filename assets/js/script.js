@@ -1,31 +1,25 @@
 let numMoviments = document.querySelector("#numMov").innerHTML = 0;
 let btnRestart = document.querySelector("#btnRestart").disabled = true;
 let btnStart = document.querySelector("#btnStart").disabled = false;
+let numStart = 3;
 
-document.querySelector("#btnStart").addEventListener('click', start)
+document.querySelector("#btnStart").addEventListener('click', start);
 function start(){
   document.querySelector("#btnRestart").disabled = false;
   document.querySelector("#btnStart").disabled = true;
-  // value();
-}
+  numbDiscs();
+};
+
+let numbDiscs = function(){
+  let inputValue = document.querySelector("#numDiscs").value; 
+  return inputValue;
+};
 
 document.querySelector("#btnRestart").addEventListener('click', restart)
 function restart(){
   document.querySelector("#btnRestart").disabled = true;
   document.querySelector("#btnStart").disabled = false;
-}
-
-// function value(){
-//   let output = '';
-//   let num =  document.querySelector("#numDiscs").value;
-//   document.getElementById("btnRestart").disabled = false;
-
-//   if(num == 3){output = 3, document.querySelector("#minMov").innerText = 7;};
-//   if(num == 4){output = 4, document.querySelector("#minMov").innerText = 15;};
-//   if(num == 5){output = 5, document.querySelector("#minMov").innerText = 31;};
-
-//   return output;
-// }
+};
 
 const teste = document.querySelector('#numDiscs');
 teste.addEventListener('change', function(event){
@@ -46,16 +40,14 @@ teste.addEventListener('change', function(event){
     default:
       text = 0;
   }
-  result.innerText = text;
+    result.innerText = text;
 })
 
-let numbStart = 5;
-
-function addDiscs( ){
-  for(i=numbStart;i>=1;i--){
+function addDiscs(){
+  const tower1 = document.querySelector('#twr_1');
+  for(i=numStart;i>=1;i--){
     let arrayCores = ["#003F63", "#F2B138", "#A1A5A6", "#D9D9D9", "#350D40", "#02Ba38"];
     let width = 5*i;
-    const tower1 = document.querySelector('#twr_1');
     const disc = document.createElement("span");
     disc.id = i; 
     disc.classList = 'disc'; 
@@ -69,8 +61,9 @@ function addDiscs( ){
     disc.classList.add('unselectable'),
     tower1.appendChild(disc);
   }     
-  return addDiscs;
-};addDiscs();
+  return tower1;
+};
+addDiscs();
 
 const blockDiscs = document.querySelectorAll(".disc") 
 blockDiscs.forEach(disck =>{
@@ -93,7 +86,6 @@ blockDiscs.forEach(disck =>{
       event.currentTarget.classList.add('unselectable');
       event.currentTarget.style.cursor = 'no-drop';
       event.currentTarget.draggable = false; 
-    
     }
   });
 })
