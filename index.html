@@ -8,43 +8,40 @@
     <title>Torre De Hanoi</title>
 </head>
 <body>
-    <div class="jogo">
-        <header>
-            <h1>Torre De Hanoi</h1>
-            <img src="./assets/img/logo.png" alt="">
-        </header>
-        <main>
-            <section id="towers_wrapper" class="towers_wrapper">
-                <div class="tower drop_area" id="twr_1"></div>
-                <div class="tower drop_area" id="twr_2"></div>
-                <div class="tower drop_area" id="twr_3"></div>
-            </section>
-            <div class="base"></div>
-            <div class="painel">
-                <ul class="opcoes">
-                    <li>
-                        <span>Numero de discos: </span>
-                        <select name="numDiscs" id="numDiscs">
-                        <option></option>
-                        <option value="3" id="3">Nivel 1</option>
-                        <option value="4" id="4">Nivel 2</option>
-                        <option value="5" id="5">Nivel 3</option>
-                        </select>
-                    </li>
-                    <li><span>Mínimo de movimentos: </span><label id="minMov">0</label></li>
-                    <li><span>Seus movimentos: </span><label id="numMov">0</label></li>
-                    <li class="buttons">
-                        <button id="btnRestart" type="button">Restart</button>
-                        <button id="btnStart">Start</button>
-                    </li>
-                </ul>
-            </div>
-        </main>
-        <footer>
-            <h4>By Júlio Pereira / Robson Martins</h4>
-        </footer>
-    </div>
-<!-- script -->
+    <header>
+        <h1>Torre De Hanoi</h1>
+        <img src="./assets/img/logo.png" alt="">
+    </header>
+    <main>
+        <div class="painel">
+            <ul class="opcoes">
+                <li>
+                    <span>Dificuldade:</span>
+                    <select name="numDiscs" id="numDiscs">
+                    <option></option>
+                    <option value="3" id="3">Nivel 1</option>
+                    <option value="4" id="4">Nivel 2</option>
+                    <option value="5" id="5">Nivel 3</option>
+                    </select>
+                </li>
+                <li><span>Mínimo de movimentos: </span><label id="minMov">0</label></li>
+                <li><span>Seus movimentos: </span><label id="numMov">0</label></li>
+                <li class="buttons">
+                    <button id="btnRestart" type="button">Restart</button>
+                    <button id="btnStart">Start</button>
+                </li>
+            </ul>
+        </div>
+        <section id="towers_wrapper" class="towers_wrapper">
+            <div class="tower drop_area" id="twr_1"></div>
+            <div class="tower drop_area" id="twr_2"></div>
+            <div class="tower drop_area" id="twr_3"></div>
+        </section>
+        <div class="base"></div>
+    </main>
+    <footer>
+        <h4>By Júlio Pereira / Robson Martins</h4>
+    </footer>
 <script src="./assets/js/script.js"></script>
 </body>
 </html>
