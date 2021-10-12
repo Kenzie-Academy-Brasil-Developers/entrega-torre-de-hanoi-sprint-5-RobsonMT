@@ -87,11 +87,14 @@ ul button{
     padding: 5px;
     margin-top: 2vh;
 }
+ul button,select:hover{
+    cursor: pointer;
+}
 li.buttons{
     text-align: center;
 }
 ul>li>span,label{
-    color: #fff;
+    color: rgb(92, 89, 89);
     text-shadow: 2px #ccc;
 }
 footer{
